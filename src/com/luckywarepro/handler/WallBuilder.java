@@ -48,9 +48,9 @@ public class WallBuilder {
             while (brickCount > 0) {
                 for (int row = 0; row <= Wall.wallHeight; row++) {
                     for (int column = 0; column <= Wall.wallWidth; column++) {
-                        if (currentBrick[row][column] == 1 && currentWall[row][column] == 0) {
-                            currentWall[row][column] = 1;
-                        }
+//                        if (currentBrick[row][column] == 1 && currentWall[row][column] == 0) {
+//                            currentWall[row][column] = 1;
+//                        }
                     }
                 }
                 brickCount--;

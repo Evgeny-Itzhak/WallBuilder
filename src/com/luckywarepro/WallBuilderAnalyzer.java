@@ -1,6 +1,7 @@
 package com.luckywarepro;
 
 import com.luckywarepro.exception.WrongDataException;
+import com.luckywarepro.handler.ConsoleReader;
 import com.luckywarepro.handler.DataHandler;
 import com.luckywarepro.handler.FileReader;
 import com.luckywarepro.handler.WallBuilder;
@@ -14,6 +15,11 @@ public class WallBuilderAnalyzer {
         fileReader.openFile();
         fileReader.readData();
         fileReader.closeFile();
+
+        if (FileReader.inputData.isEmpty()){
+            ConsoleReader consoleReader = new ConsoleReader();
+            consoleReader.readData();
+        }
 
         DataHandler dataHandler = new DataHandler();
 

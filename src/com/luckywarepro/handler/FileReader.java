@@ -22,8 +22,8 @@ public class FileReader implements DataReader {
             scanner = new Scanner(file);
 
         } catch (FileNotFoundException e) {
-            System.out.println("Could not find file!");
-            e.printStackTrace();
+            System.out.println("There is no file in 'inputdata' directory!\n\nPlease, input data from console!");
+            //e.printStackTrace();
         }
     }
 
