@@ -45,8 +45,8 @@ public class DataHandler {
         checkWallMatrix();
         convertWallArrayListMatrixToArray();
     }
-    
-    private void initWallMatrixInArrayList(){
+
+    private void initWallMatrixInArrayList() {
         wallWidth = Integer.parseInt(inputData.get(0).trim().substring(0, 1));
         wallHeight = Integer.parseInt(inputData.get(0).trim().substring(2));
         wallMatrix = new ArrayList<String>(inputData);
@@ -79,30 +79,29 @@ public class DataHandler {
         }
     }
 
-    private void convertWallArrayListMatrixToArray(){
+    private void convertWallArrayListMatrixToArray() {
         int wallMatrixRawCount = wallMatrix.size();
         int wallMatrixFieldsCount = wallMatrix.get(0).length();
         wallMatrixArr = new int[wallMatrixRawCount][wallMatrixFieldsCount];
         for (int rowNum = 0; rowNum < wallMatrixRawCount; rowNum++) {
-            for (int fieldNum = 0, endFieldNum = wallMatrixFieldsCount - 1; fieldNum < wallMatrixFieldsCount; fieldNum++, endFieldNum--) {
+            for (int columnNum = 0, endColumnNum = wallMatrixFieldsCount - 1; columnNum < wallMatrixFieldsCount; columnNum++, endColumnNum--) {
                 String row = wallMatrix.get(rowNum);
-                int beginIndex = fieldNum;
-                int endIndex = row.length() - endFieldNum;
+                int beginIndex = columnNum;
+                int endIndex = row.length() - endColumnNum;
                 String currentRow = row.substring(beginIndex, endIndex);
-                wallMatrixArr[rowNum][fieldNum] = Integer.parseInt(currentRow);
-
+                wallMatrixArr[rowNum][columnNum] = Integer.parseInt(currentRow);
             }
         }
     }
 
     private void isBrickParamsCorrect() throws WrongBrickParamException {
         boolean correctBricksCount = inputData.get(wallHeight + 1).trim().length() == 1;
-        if (!correctBricksCount){
+        if (!correctBricksCount) {
             throw new WrongBrickParamException("Wrong parameters of \"Brick\" in input data!");
         }
     }
 
-    private void initBrickList(){
+    private void initBrickList() {
         generalBricksCount = Integer.parseInt(inputData.get(wallHeight + 1).trim().substring(0, 1));
         brickList = new ArrayList<String[]>();
         for (int i = 0; i < generalBricksCount; i++) {
@@ -116,5 +115,5 @@ public class DataHandler {
         isBrickParamsCorrect();
         initBrickList();
     }
-    
+
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * @author Itzhak
  */
-public class ConsoleReader implements DataReader{
+public class ConsoleReader implements DataReader {
 
     public static ArrayList<String> inputData = new ArrayList<String>();
 
@@ -17,7 +17,7 @@ public class ConsoleReader implements DataReader{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            while (true){
+            while (true) {
                 String string = reader.readLine();
                 if (string.equals("")) break;
                 inputData.add(string);
@@ -25,9 +25,9 @@ public class ConsoleReader implements DataReader{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         System.out.println("\n*****\nInput data:\n");
-        for(String string : inputData){
+        for (String string : inputData) {
             System.out.println("" + string);
         }
         System.out.println("\n*****\n");
